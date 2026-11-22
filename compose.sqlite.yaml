@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:${APP_PORT:-8080}:8000"
+    environment:
+      GREETING: "${GREETING:-Привет из Docker!}"
+      STORAGE: sqlite
+    volumes:
+      - sqlite-data:/data
+
+volumes:
+  sqlite-data:
